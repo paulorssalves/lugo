@@ -1,8 +1,14 @@
-# Luke's Hugo Theme
+Tema original criado por [Luke Smith](https://github.com/LukeSmithxyz/).
+
+Modifiquei este tema para criar sites para projetos meus, sobretudo [o de psicoterapia](https://github.com/paulorssalves/site-psicoterapia).
+
+Segue abaixo a documentação original do lugo:
+
+## Luke's Hugo Theme
 
 A simple Hugo theme I plan on using for my personal website, [Based.Cooking](https://based.cooking) and [LandChad.net](https://landchad.net).
 
-## get started
+### get started
 
 ```sh
 hugo new site new-site
@@ -12,7 +18,7 @@ echo "theme = 'lugo'" >> config.toml
 cp themes/lugo/static/style.css static/
 ```
 
-## stuff
+### stuff
 
 - Makes one RSS feed for the entire site at `/index.xml`
 - Stylesheet is in `/style.css` and includes some important stuff for partials.
