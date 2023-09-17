@@ -1,0 +1,38 @@
+{{ define "title" -}}
+{{ .Title | title }}
+{{- end }}
+{{ define "main" -}}
+{{ .Content }}
+<ul>
+{{- range.Pages.Reverse }}
+<li class="blogpost-list-item">
+
+<div class="blogpost-card">
+	{{ if isset .Params "featured_image" }} 
+	{{ with .Params.featured_image }}<img src="{{ . }}" height="30%"></a>{{end}}
+	{{ end }} 
+	<div class="blogpost-summary">
+		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
+		<p class="blogpost-summary-content">
+			{{- if .Param "authorsinlist" }}
+			{{ with .Params.authors }}
+				by 
+				{{ delimit . ", " " and " }}
+			{{end}}
+			{{ end -}}
+			{{ .Summary }}..
+
+			{{ if .Truncated }}
+				<span class="read-more"><a href="{{ .RelPermalink }}">Ler mais.</a></span>
+			{{ end }}
+		</p>
+	</div>
+	<div class="post-date">
+		<span>{{- if .Param "datesinlist" }}<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006 " }}</time>{{ end -}}</span>
+	</div>
+</div>
+
+</li>
+{{- end }}
+</ul>
+{{- end }}
