@@ -1,4 +1,4 @@
-Tema original criado por [Luke Smith](https://github.com/LukeSmithxyz/).
+Tema original criado por [Luke Smith](https://github.com/LukeSmithxyz/). Ele já não parece nada com o original, mas majoritariamente por conta de modificações no CSS.
 
 Modifiquei este tema para criar sites para projetos meus, sobretudo [o de psicoterapia](https://github.com/paulorssalves/site-psicoterapia).
 
