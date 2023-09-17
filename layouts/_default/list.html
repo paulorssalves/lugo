@@ -3,8 +3,11 @@
 {{- end }}
 {{ define "main" -}}
 {{ .Content }}
-<ul>
-{{- range.Pages.Reverse }}
+
+{{ partial "paginator.html" . }}
+
+<ul class="blogpost-list">
+{{- range (.Paginate .RegularPagesRecursive.Reverse).Pages }}
 <li class="blogpost-list-item">
 
 <div class="blogpost-card">
@@ -34,4 +37,8 @@
 </li>
 {{- end }}
 </ul>
+
+{{ partial "paginator.html" . }}
 {{- end }}
+
+

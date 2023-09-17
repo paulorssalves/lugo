@@ -1,13 +1,19 @@
 
 {{ define "main" -}}
+
+<div class="wrapper">
 {{ .Content }}
+</div>
 
 
 <h2 class="blog-intro">Blog</h2>
 
 {{ $blogPages := where .Site.RegularPages "Section" "blog" }}
 
-{{ range $blogPages.Reverse }}
+<ul class="blogpost-list">
+
+
+{{ range first 6 $blogPages.Reverse }}
 	{{ if ne .File.Dir "/blog" }} 
 	<li class="blogpost-list-item">
 			<div class="blogpost-card"> 
@@ -16,6 +22,7 @@
 				<a href="{{ .RelPermalink }}">
 				{{ with .Params.featured_image }}<img src="{{ . }}" height="30%">{{ end }}
 				</a>
+			</div>
 				{{ end }}
 				<div class="blogpost-summary">
 					<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
@@ -32,5 +39,5 @@
 	</li>
 	{{ end }}
 {{ end}}
-
+</ul>
 {{- end}}

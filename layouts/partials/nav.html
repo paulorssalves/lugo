@@ -8,16 +8,33 @@
 		<div class="separator">
 		{{- $sec := .Page.Section }}{{ $file := .File.TranslationBaseName -}}
 
-		</div>
-		<input type="checkbox" id="navbar-toggle-cb">
-		<label for="navbar-toggle-cb" data-toggle="collapse"><i class="fa-solid fa-bars"></i></label>
-	</div>
-</nav>
-	<div class="collapse">
+<div class="navbar-header-bsc">
 		<ul>
 		{{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}
 		<li><a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}"><span class=pre>{{ .Pre }}</span><span class=menuname>{{ .Name }}</span></a></li>
 			{{- end }}
+		</ul>
+</div>
 
+<!-- insert checkbox -->
+
+	<input type="checkbox" id="navbar-toggle-cbox">
+<!-- change the "hamburger" icon from being a button to a label for checkbox -->
+
+	<div class="navbar-header">
+
+	 <label for="navbar-toggle-cbox" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+			<span><i class="fa-solid fa-bars"></i></span>
+		</label>
+
+	</div>
+	<div class="collapse">
+		<ul>
+		{{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}
+		<a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}"><li><span class=pre>{{ .Pre }}</span><span class=menuname>{{ .Name }}</span></li></a>
+			{{- end }}
 		</ul>
 	</div>
+		</div>
+</nav>
+

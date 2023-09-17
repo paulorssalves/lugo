@@ -26,7 +26,7 @@
 <header><h1 id="tag_{{ .Title }}">{{ block "title" . }}{{ end }}</h1></header>
 
 {{ $link := .RelPermalink }} 
-{{ if ne $link "/blog/" }}
+{{ if (and (ne $link "/blog/") (ne $link "/")) }}
 <article>
 {{ end }}
 {{ block "main" . }}
@@ -41,7 +41,7 @@
 {{ .Content }}
 
 {{ $link := .RelPermalink }} 
-{{ if ne $link "/blog/" }}
+{{ if (and (ne $link "/blog/") (ne $link "/")) }}
 </article>
 {{ end }}
 {{ end }}
