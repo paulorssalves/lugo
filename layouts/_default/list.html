@@ -6,14 +6,16 @@
 
 {{ partial "paginator.html" . }}
 
-<ul class="blogpost-list">
+<div class="blogpost-list">
 {{- range (.Paginate .RegularPagesRecursive.Reverse).Pages }}
-<li class="blogpost-list-item">
 
 <div class="blogpost-card">
+	<a href="{{ .RelPermalink }}"	>
 	{{ if isset .Params "featured_image" }} 
-	{{ with .Params.featured_image }}<img src="{{ . }}" height="30%"></a>{{end}}
+		{{ with .Params.featured_image }}
+		<img src="{{ . }}" height="30%">{{end}}
 	{{ end }} 
+	</a>
 	<div class="blogpost-summary">
 		<h2><a href="{{ .RelPermalink }}">{{ .Title }}</a></h2>
 		<p class="blogpost-summary-content">
@@ -34,9 +36,8 @@
 		<span>{{- if .Param "datesinlist" }}<time datetime="{{ .Date.Format "2006-01-02T15:04:05Z07:00" }}">{{ .Date.Format "02 Jan 2006 " }}</time>{{ end -}}</span>
 	</div>
 </div>
-</li>
 {{- end }}
-</ul>
+</div>
 
 {{ partial "paginator.html" . }}
 {{- end }}

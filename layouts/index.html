@@ -2,42 +2,53 @@
 {{ define "main" -}}
 
 <div class="wrapper">
-{{ .Content }}
-</div>
+	<h1 class="index-h1">{{ .Params.header }}</h1>
 
+	<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
+	
+	<div class="index-content-separator">
+		<div>
+			<h2 class="index-h2">{{ .Params.title1 }}</h2>
+			<img src="{{ .Params.img1 }}" alt="" class="index-img">
+		</div>		
+		<p class="desc-p">{{ .Params.content1 | markdownify }}</p>
+	</div>
+
+	<div class="index-content-separator">
+		<div>
+			<h2 class="index-h2">{{ .Params.title2 }}</h2>
+			<img src="{{ .Params.img2 }}" alt="" class="index-img">
+		</div>
+		<p class="desc-p">{{ .Params.content2 | markdownify }}</p>
+	</div>
+</div>
 
 <h2 class="blog-intro">Blog</h2>
 
 {{ $blogPages := where .Site.RegularPages "Section" "blog" }}
 
-<ul class="blogpost-list">
-
-
+<div class="blogpost-list">
 {{ range first 6 $blogPages.Reverse }}
 	{{ if ne .File.Dir "/blog" }} 
-	<li class="blogpost-list-item">
 			<div class="blogpost-card"> 
-			{{ if isset .Params "featured_image" }}
-			<div class="featured-image">
 				<a href="{{ .RelPermalink }}">
+				{{ if isset .Params "featured_image" }}
 				{{ with .Params.featured_image }}<img src="{{ . }}" height="30%">{{ end }}
 				</a>
-			</div>
-				{{ end }}
-				<div class="blogpost-summary">
+			{{ end }}
+				<div class="blogpost-summary index-summary">
 					<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
 						<p class="blogpost-summary-content">
 							{{ .Summary }}..
+						</p>
 
 							{{ if .Truncated }}
 								<span class="read-more index-located"><a href="{{ .RelPermalink }}">Ler mais.</a></span>
 
 							{{ end }}
-						</p>
 				</div>
 			</div>
-	</li>
 	{{ end }}
 {{ end}}
-</ul>
+</div>
 {{- end}}
