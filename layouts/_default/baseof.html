@@ -34,8 +34,8 @@
 	<div class="featured-image">
 		{{ with .Params.featured_image }}<img src="{{ . }}" height="30%"></a>{{ end }}
 		{{ if isset .Params "attribution" }}	
-			<span class="attribution">Autor da imagem: {{ .Params.attribution }}</span>
 		</div>
+		<span class="attribution">Autor da imagem: {{ .Params.attribution }}</span>
 		{{ end }}
 		</div>
 	{{end}}
