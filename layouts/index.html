@@ -4,7 +4,9 @@
 <div class="wrapper">
 	<h1 class="index-h1">{{ .Params.header }}</h1>
 
-	<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
+	{{ if isset .Params "me_pic" }} 
+		<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
+	{{ end }}
 	
 	<div class="index-content-separator">
 		<div>
