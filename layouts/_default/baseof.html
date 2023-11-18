@@ -26,13 +26,20 @@
 <main>
 <header><h1 id="tag_{{ .Title }}">{{ block "title" . }}{{ end }}</h1></header>
 
+
+
+
 {{ $link := .RelPermalink }} 
 {{ if (and (ne $link "/blog/") (ne $link "/")) }}
-<article>
+{{ if (eq .RelPermalink "/sobre/") }}
+	<article class="about-article">
+{{ else }}
+	<article>
+{{ end }}
+	<div class="featured-image">
 {{ end }}
 {{ block "main" . }}
 	{{ if isset .Params "featured_image" }}
-	<div class="featured-image">
 		{{ with .Params.featured_image }}<img src="{{ . }}" height="30%"></a>{{ end }}
 		{{ if isset .Params "attribution" }}	
 		</div>

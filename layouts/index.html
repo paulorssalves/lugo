@@ -2,12 +2,13 @@
 {{ define "main" -}}
 
 <div class="wrapper">
-	<h1 class="index-h1">{{ .Params.header }}</h1>
+	<div class="pictitle">
+		<h1 class="index-h1">{{ .Params.header }}</h1>
 
-	{{ if isset .Params "me_pic" }} 
-		<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
-	{{ end }}
-	
+		{{ if isset .Params "me_pic" }} 
+			<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
+		{{ end }}
+	</div>	
 	<div class="index-content-separator">
 		<div>
 			<h2 class="index-h2">{{ .Params.title1 }}</h2>
