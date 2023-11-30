@@ -2,14 +2,23 @@
 <html lang="{{ .Site.Language }}">
 <head>
 	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-32Q02XPDQZ"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
+	<!-- Google Tag Manager -->
+	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+	j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+	'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+	})(window,document,'script','dataLayer','GTM-PFD5T7JD');</script>
+	<!-- End Google Tag Manager -->
+	<!-- Tag antiga; testando antes de saber se posso removê-la pra valer
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-32Q02XPDQZ"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
 
-		gtag('config', 'G-32Q02XPDQZ');
-	</script>
+			gtag('config', 'G-32Q02XPDQZ');
+		</script>
+	-->
 	<title>{{ if not .IsHome }}{{ .Title | title }} — {{ end }}{{ .Site.Title }}</title>
 	<script src="https://kit.fontawesome.com/eadcda0d00.js" crossorigin="anonymous"></script>
 	<link rel="canonical" href="{{ .Site.BaseURL }}">
@@ -30,6 +39,12 @@
 	<meta charset="utf-8">
 </head>
 <body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFD5T7JD"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+
+
 {{ partial "nav.html" . }}
 {{ partial "wpp_button.html" . }}
 <main>
