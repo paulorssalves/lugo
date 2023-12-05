@@ -3,7 +3,17 @@
 
 <div class="wrapper">
 	<div class="pictitle">
-		<h1 class="index-h1">{{ .Params.header }}</h1>
+		<div class="pictitle-copy">
+			<h1 class="index-h1">{{ .Params.header }}</h1>
+			<h2 class="subheader">{{ .Params.subheader }}</h2>
+			<div class="call-to-action">
+				<a href="https://api.whatsapp.com/send/?phone=%2B5521976625742&text=Ol%C3%A1%21+Encontrei+o+seu+site+na+Internet+e+gostaria+de+saber+mais+detalhes.&type=phone_number&app_absent=0" target="_blank">
+					<i class="fa-brands fa-whatsapp wpp-icon">
+						<p class="talk-to-me">Agendar atendimento!</p>
+					</i>
+				</a>
+			</div>
+		</div>
 
 		{{ if isset .Params "me_pic" }} 
 			<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
