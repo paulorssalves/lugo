@@ -1,68 +1,50 @@
 {{ define "main" -}}
-
 <div class="wrapper">
-	<div class="pictitle">
-		<div class="pictitle-copy">
-			<h1 class="index-h1">{{ .Params.header }}</h1>
-			<h2 class="subheader">{{ .Params.subheader }}</h2>
-			<div class="call-to-action">
-				<a href="https://api.whatsapp.com/send/?phone=%2B5521976625742&text=Ol%C3%A1%21+Encontrei+o+seu+site+na+Internet+e+gostaria+de+saber+mais+detalhes.&type=phone_number&app_absent=0" target="_blank">
-					<i class="fa-brands fa-whatsapp wpp-icon">
-						<p>Agendar atendimento!</p>
-					</i>
-				</a>
+		<div class="index-content-separator">
+			<div>
+				{{ if isset .Params "introduction_title" }}
+				<h2 class="index-h2">{{ .Params.introduction_title}}</h2>
+				{{ end }}
+			</div>		
+			<div class="website-introduction">{{ .Params.website_introduction| markdownify }}</div>
+		</div>
+
+		<div class="index-content-separator">
+			<div>
+				<h2 class="index-h2">{{ .Params.approach_intro}}</h2>
+				<img src="{{ .Params.img2 }}" alt="" class="index-img">
+			</div>
+			<div class="approach">
+				<div class="approach-description approach01">{{ .Params.approach01_description| markdownify }}</div>
+				<div class="approach-description approach02">{{ .Params.approach02_description| markdownify }}</div>
 			</div>
 		</div>
 
-		{{ if isset .Params "me_pic" }} 
-			<img src="{{ .Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
-		{{ end }}
-	</div>	
-	<div class="index-content-separator">
-		<div>
-			<h2 class="index-h2">{{ .Params.title1 }}</h2>
-			<img src="{{ .Params.img1 }}" alt="" class="index-img">
-		</div>		
-		<p class="desc-p">{{ .Params.content1 | markdownify }}</p>
-	</div>
+	<h3 class="get-to-know top">{{ .Params.CTA }}</h3>
+	<h4 class="get-to-know sub">{{ .Params.CTA_sub }}</h4>
+	<div class="services">
+		<div class="service service-psychotherapy">
+			<img src="{{ .Params.therapy_icon }}" alt="" class="index-img">
+			<h4>{{ .Params.service_psychotherapy}}</h4>
+			<h5>{{ .Params.service_psychotherapy_sub }}</h5>
+			{{ .Params.service_psychotherapy_list | markdownify }}
 
-	<div class="index-content-separator">
-		<div>
-			<h2 class="index-h2">{{ .Params.title2 }}</h2>
-			<img src="{{ .Params.img2 }}" alt="" class="index-img">
-		</div>
-		<p class="desc-p">{{ .Params.content2 | markdownify }}</p>
-	</div>
-</div>
-
-<h2 class="blog-intro">Blog</h2>
-
-{{ $blogPages := where .Site.RegularPages "Section" "blog" }}
-
-<div class="blogpost-list">
-{{ range first 6 $blogPages.Reverse }}
-	{{ if ne .File.Dir "/blog" }} 
-			<div class="blogpost-card"> 
-				<a href="{{ .RelPermalink }}">
-				{{ if isset .Params "featured_image" }}
-				{{ with .Params.featured_image }}<img src="{{ . }}" height="30%">{{ end }}
-				</a>
-			{{ end }}
-				<div class="blogpost-summary index-summary">
-					<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-						<p class="blogpost-summary-content">
-							{{ .Summary }}..
-						</p>
-
-							{{ if .Truncated }}
-								<span class="read-more index-located"><a href="{{ .RelPermalink }}">Ler mais.</a></span>
-
-							{{ end }}
-				</div>
+			<div class="call-to-action service-button">
+				<a href="/psicoterapia/" class="know-more">Saiba mais</a>
 			</div>
-	{{ end }}
-{{ end}}
+		</div>
 
+		<div class="service service-tm">
+			<img src="{{ .Params.tm_icon}}" alt="" class="index-img">
+			<h4>{{.Params.time_management }}</h4>
+			<h5>{{ .Params.time_management_sub }}</h5>
+			{{ .Params.time_management_list | markdownify }}
+
+			<div class="call-to-action service-button">
+				<a href="/gt/" class="know-more">Saiba mais</a>
+			</div>
+		</div>
+	</div>
 </div>
-{{ partial "videos.html" . }}
 {{- end}}
+

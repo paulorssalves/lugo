@@ -1,0 +1,28 @@
+<h2 class="blog-intro">Blog</h2>
+
+{{ $blogPages := where .Site.RegularPages "Section" "blog" }}
+
+<div class="blogpost-list">
+{{ range first 6 $blogPages.Reverse }}
+	{{ if ne .File.Dir "/blog" }} 
+			<div class="blogpost-card"> 
+				<a href="{{ .RelPermalink }}">
+				{{ if isset .Params "featured_image" }}
+				{{ with .Params.featured_image }}<img src="{{ . }}" height="30%">{{ end }}
+				</a>
+			{{ end }}
+				<div class="blogpost-summary index-summary">
+					<h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+						<p class="blogpost-summary-content">
+							{{ .Summary }}..
+						</p>
+
+							{{ if .Truncated }}
+								<span class="read-more index-located"><a href="{{ .RelPermalink }}">Ler mais.</a></span>
+							{{ end }}
+				</div>
+			</div>
+	{{ end }}
+{{ end}}
+
+</div>

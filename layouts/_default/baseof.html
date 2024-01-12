@@ -40,6 +40,7 @@
 	<meta charset="utf-8">
 </head>
 <body>
+
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PFD5T7JD"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -48,8 +49,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 {{ partial "nav.html" . }}
 {{ partial "wpp_button.html" . }}
+
 <main>
+
+
 <header><h1 id="tag_{{ .Title }}">{{ block "title" . }}{{ end }}</h1></header>
+
+	{{ partial "self.html" . }}
 
 {{ $link := .RelPermalink }} 
 {{ if (and (ne $link "/blog/") (ne $link "/")) }}
@@ -57,14 +63,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<article class="about-article">
 {{ else }}
 	<article>
-{{ end }}
-	<div class="featured-image">
+		{{ end }} 
 {{ end }}
 {{ block "main" . }}
+
 	{{ if isset .Params "featured_image" }}
+	<div class="featured-image">
 		{{ with .Params.featured_image }}<img src="{{ . }}" height="30%"></a>{{ end }}
 		{{ if isset .Params "attribution" }}	
-		</div>
 		<span class="attribution">Autor da imagem: {{ .Params.attribution }}</span>
 		{{ end }}
 		</div>
@@ -78,11 +84,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </article>
 {{ end }}
 {{ end }}
-{{ if .Param "nextprev" }}{{ partial "nextprev.html" . -}}{{ end -}}
-{{ if .Param "taglist" }}{{ partial "taglist.html" . }}{{ end -}}
+
 </main>
+
+{{ partial "info.html" . }}
+{{ partial "blog.html" . }}
 {{ block "footer" . }}
 {{ partial "footer.html" . }}
 {{ end }}
+
 </body>
 </html>

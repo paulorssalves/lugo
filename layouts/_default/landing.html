@@ -1,0 +1,27 @@
+{{ define "main" }}
+
+<div class="website-introduction">
+	{{ .Params.website_introduction | markdownify }} 
+</div>
+
+			{{ partial "ctab.html" . }}
+
+<p class="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</p>
+<br>
+(( video ))
+
+<hr>
+
+<div class="how-treatment">
+	{{ .Params.how_treatment | markdownify }} 
+</div>
+
+			{{ partial "ctab.html" . }}
+
+<div class="gains">
+	{{ .Params.gains | markdownify }}
+</div>
+
+			{{ partial "ctab.html" . }}
+{{ end }}
+
