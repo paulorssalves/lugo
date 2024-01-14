@@ -2,26 +2,30 @@
 
 <div class="website-introduction">
 	{{ .Params.website_introduction | markdownify }} 
+	
+	{{ if (eq .RelPermalink "/gt/") }}
+
+	<div id="gt-intro-lists">
+		{{ .Params.gt_intro0201 | markdownify }}
+		{{ .Params.gt_intro0202 | markdownify }}
+	</div>
+	<div class="gt-intro-ending">{{ .Params.gt_intro03 | markdownify }}</div>
+	{{ end }}
 </div>
 
-			{{ partial "ctab.html" . }}
+{{ partial "ctab.html" . }}
 
-<p class="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</p>
-<br>
+<h3 class="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</h3>
 (( video ))
-
-<hr>
-
 <div class="how-treatment">
 	{{ .Params.how_treatment | markdownify }} 
 </div>
 
-			{{ partial "ctab.html" . }}
+{{ partial "ctab.html" . }}
 
 <div class="gains">
 	{{ .Params.gains | markdownify }}
 </div>
 
-			{{ partial "ctab.html" . }}
+{{ partial "ctab.html" . }}
 {{ end }}
-
