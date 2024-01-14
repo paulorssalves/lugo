@@ -11,9 +11,38 @@
 
 <div class="navbar-header-bsc">
 		<ul>
-		{{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}
-		<li><a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}"><span class=pre>{{ .Pre }}</span><span class=menuname>{{ .Name }}</span></a></li>
+		{{ if (eq .RelPermalink "/") }}
+			<li><a class="menuactive" href="#website-introduction"><span class=pre></span><span class=menuname>Abordagens</span></a></li>
+			<li><a class="menuactive" href="#get-to-know"><span class=pre></span><span class=menuname>Tratamentos</span></a></li>
+			{{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}
+			<li><a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}"><span class=pre>{{ .Pre }}</span><span class=menuname>{{ .Name }}</span></a></li>
 			{{- end }}
+		{{ end }}
+
+		{{ if (eq .RelPermalink "/gt/") }}
+
+			<li><a class="menuactive" href="/"><span class=pre></span><span class=menuname>Home</span></a></li>
+			<li><a class="menuactive" href="#website-introduction"><span class=pre></span><span class=menuname>Desafios</span></a></li>
+			<li><a class="menuactive" href="#how-it-helps"><span class=pre></span><span class=menuname>Como funciona</span></a></li>
+			<li><a class="menuactive" href="#gains"><span class=pre></span><span class=menuname>Benefícios</span></a></li>
+		
+		{{ else if (eq .RelPermalink "/psicoterapia/") }}
+
+			<li><a class="menuactive" href="/"><span class=pre></span><span class=menuname>Home</span></a></li>
+			<li><a class="menuactive" href="#website-introduction"><span class=pre></span><span class=menuname>Sintomas</span></a></li>
+			<li><a class="menuactive" href="#how-it-helps"><span class=pre></span><span class=menuname>Como funciona</span></a></li>
+			<li><a class="menuactive" href="#gains"><span class=pre></span><span class=menuname>Benefícios</span></a></li>
+
+		{{ else if strings.Contains .RelPermalink "blog" }}
+
+			<li><a class="menuactive" href="/"><span class=pre></span><span class=menuname>Home</span></a></li>
+			<li><a class="menuactive" href="/psicoterapia/"><span class=pre></span><span class=menuname>Psicoterapia</span></a></li>
+			<li><a class="menuactive" href="/gt/"><span class=pre></span><span class=menuname>Gestão do Tempo</span></a></li>
+
+		{{ end }}
+		
+			<li><a class="menuactive" href="#contato"><span class=pre></span><span class=menuname>Contato</span></a></li>
+
 		</ul>
 </div>
 
@@ -31,9 +60,37 @@
 	</div>
 	<div class="collapse">
 		<ul>
-		{{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}
-		<a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}"><li><span class=pre>{{ .Pre }}</span><span class=menuname>{{ .Name }}</span></li></a>
+		{{ if (eq .RelPermalink "/") }}
+			<li><a class="menuactive" href="#website-introduction"><span class=pre></span><span class=menuname>Abordagens</span></a></li>
+			<li><a class="menuactive" href="#get-to-know"><span class=pre></span><span class=menuname>Tratamentos</span></a></li>
+			{{ range.Site.Menus.main.ByWeight }}{{ $base := path.Base .URL }}
+			<li><a {{ if or ( eq $sec $base ) ( eq $file $base ) ( and (eq $sec "") ( eq $file "_index") (eq $base "/") ) }}class="menuactive" {{ end }}href="{{ .URL }}"><span class=pre>{{ .Pre }}</span><span class=menuname>{{ .Name }}</span></a></li>
 			{{- end }}
+		{{ end }}
+
+		{{ if (eq .RelPermalink "/gt/") }}
+
+			<li><a class="menuactive" href="/"><span class=pre></span><span class=menuname>Home</span></a></li>
+			<li><a class="menuactive" href="#website-introduction"><span class=pre></span><span class=menuname>Desafios</span></a></li>
+			<li><a class="menuactive" href="#how-it-helps"><span class=pre></span><span class=menuname>Como funciona</span></a></li>
+			<li><a class="menuactive" href="#gains"><span class=pre></span><span class=menuname>Benefícios</span></a></li>
+		
+		{{ else if (eq .RelPermalink "/psicoterapia/") }}
+
+			<li><a class="menuactive" href="/"><span class=pre></span><span class=menuname>Home</span></a></li>
+			<li><a class="menuactive" href="#website-introduction"><span class=pre></span><span class=menuname>Sintomas</span></a></li>
+			<li><a class="menuactive" href="#how-it-helps"><span class=pre></span><span class=menuname>Como funciona</span></a></li>
+			<li><a class="menuactive" href="#gains"><span class=pre></span><span class=menuname>Benefícios</span></a></li>
+
+		{{ else if strings.Contains .RelPermalink "blog" }}
+
+			<li><a class="menuactive" href="/"><span class=pre></span><span class=menuname>Home</span></a></li>
+			<li><a class="menuactive" href="/psicoterapia/"><span class=pre></span><span class=menuname>Psicoterapia</span></a></li>
+			<li><a class="menuactive" href="/gt/"><span class=pre></span><span class=menuname>Gestão do Tempo</span></a></li>
+
+		{{ end }}
+		
+			<li><a class="menuactive" href="#contato"><span class=pre></span><span class=menuname>Contato</span></a></li>
 		</ul>
 	</div>
 		</div>

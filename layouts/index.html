@@ -6,7 +6,7 @@
 				<h2 class="index-h2">{{ .Params.introduction_title}}</h2>
 				{{ end }}
 			</div>		
-			<div class="website-introduction">{{ .Params.website_introduction| markdownify }}</div>
+			<div id="website-introduction">{{ .Params.website_introduction| markdownify }}</div>
 		</div>
 
 		<div class="index-content-separator">
@@ -20,7 +20,7 @@
 			</div>
 		</div>
 
-	<h3 class="get-to-know top">{{ .Params.CTA }}</h3>
+	<h3 class="get-to-know" id="get-to-know">{{ .Params.CTA }}</h3>
 	<h4 class="get-to-know sub">{{ .Params.CTA_sub }}</h4>
 	<div class="services">
 		<div class="service service-psychotherapy">

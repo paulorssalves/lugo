@@ -1,6 +1,6 @@
 {{ define "main" }}
 
-<div class="website-introduction">
+<div id="website-introduction">
 	{{ .Params.website_introduction | markdownify }} 
 	
 	{{ if (eq .RelPermalink "/gt/") }}
@@ -15,15 +15,15 @@
 
 {{ partial "ctab.html" . }}
 
-<h3 class="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</h3>
+<h3 id="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</h3>
 (( video ))
-<div class="how-treatment">
+<div id="how-treatment">
 	{{ .Params.how_treatment | markdownify }} 
 </div>
 
 {{ partial "ctab.html" . }}
 
-<div class="gains">
+<div id="gains">
 	{{ .Params.gains | markdownify }}
 </div>
 

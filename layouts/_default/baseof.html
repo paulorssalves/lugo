@@ -60,7 +60,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <header><h1 id="tag_{{ .Title }}">{{ block "title" . }}{{ end }}</h1></header>
 
+
+{{ if not (strings.Contains .RelPermalink "blog") }}
+
 	{{ partial "self.html" . }}
+
+{{ end }}
 
 {{ $link := .RelPermalink }} 
 {{ if (and (ne $link "/blog/") (ne $link "/")) }}
@@ -92,7 +97,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 </main>
 
-{{ partial "info.html" . }}
+{{ if not (strings.Contains .RelPermalink "blog") }}
+	{{ partial "info.html" . }}
+{{end}}
+
+<div id="contato">
+	<h3>Quer marcar o seu atendimento ou tirar dúvidas?</h3>
+	<h4>Fale diretamente comigo!</h4>
+	<div class="call-to-action">
+		<a href="https://api.whatsapp.com/send/?phone=%2B5521976625742&text=Ol%C3%A1%21+Encontrei+o+seu+site+na+Internet+e+gostaria+de+saber+mais+detalhes.&type=phone_number&app_absent=0" target="_blank">
+			<i class="fa-brands fa-whatsapp wpp-icon">
+				<p>Conversar pelo WhatsApp</p>
+			</i>
+		</a>
+	</div>
+</div>
+
+{{ if strings.Contains .RelPermalink "blog" }}
+	<a id="return" href="/"><h4>Voltar para a página principal</h4></a>
+{{end }}
+
+
 {{ partial "blog.html" . }}
 {{ block "footer" . }}
 {{ partial "footer.html" . }}
