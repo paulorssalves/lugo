@@ -16,7 +16,24 @@
 {{ partial "ctab.html" . }}
 
 <h3 id="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</h3>
-(( video ))
+
+{{ if isset .Params "video_link" }}
+
+<div id="video-container">
+	{{ if isset .Params "video_description" }}
+	<h4>{{.Params.video_description}}</h4>
+	{{ end }}
+	<iframe id="video" 
+		src="https://www.youtube.com/embed/{{.Params.video_link}}" 
+		title="Como funciona o atendimento para gestão do tempo" 
+		frameborder="0" 
+		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+		allowfullscreen>
+	</iframe>
+</div>
+
+{{ end }}
+
 <div id="how-treatment">
 	{{ .Params.how_treatment | markdownify }} 
 </div>
