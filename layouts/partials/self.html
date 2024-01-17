@@ -1,4 +1,4 @@
-	<div class="pictitle">
+	<section class="pictitle">
 		<div class="pictitle-copy">
 			<h1 class="index-h1">{{ .Params.header }}</h1>
 			<h2 class="subheader">{{ .Params.subheader | markdownify}}</h2>
@@ -7,4 +7,4 @@
 		{{ if isset .Site.Params "me_pic" }} 
 			<img src="{{ .Site.Params.me_pic }}" alt="" class="index-self-pic" style="max-width:300px;">
 		{{ end }}
-	</div>
+	</section>

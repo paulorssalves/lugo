@@ -1,6 +1,15 @@
 {{ define "main" }}
 
-<div id="website-introduction">
+<section id="website-introduction">
+
+	{{ if (eq .RelPermalink "/psicoterapia/") }}
+
+	<div id="ailments">
+		{{ .Params.ailments | markdownify }}
+	</div>
+
+	{{ end }}
+
 	{{ .Params.website_introduction | markdownify }} 
 	
 	{{ if (eq .RelPermalink "/tempo/") }}
@@ -11,15 +20,14 @@
 	</div>
 	<div class="gt-intro-ending">{{ .Params.gt_intro03 | markdownify }}</div>
 	{{ end }}
-</div>
+</section>
 
 {{ partial "ctab.html" . }}
 
+{{ if isset .Params "video_link" }}
 <h3 id="how-it-helps">Entenda mais sobre como o meu atendimento pode te auxiliar</h3>
 
-{{ if isset .Params "video_link" }}
-
-<div id="video-container">
+<section id="video-container">
 	{{ if isset .Params "video_description" }}
 	<h4>{{.Params.video_description}}</h4>
 	{{ end }}
@@ -30,19 +38,19 @@
 		allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
 		allowfullscreen>
 	</iframe>
-</div>
+</section>
 
 {{ end }}
 
-<div id="how-treatment">
+<section id="how-treatment">
 	{{ .Params.how_treatment | markdownify }} 
-</div>
+</section>
 
 {{ partial "ctab.html" . }}
 
-<div id="gains">
+<section id="gains">
 	{{ .Params.gains | markdownify }}
-</div>
+</section>
 
 {{ partial "ctab.html" . }}
 {{ end }}

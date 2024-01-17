@@ -1,5 +1,6 @@
 {{ define "main" -}}
 <div class="wrapper">
+	<section id="introduction">
 		<div class="index-content-separator">
 			<div>
 				{{ if isset .Params "introduction_title" }}
@@ -18,10 +19,11 @@
 				<div class="approach-description approach02">{{ .Params.approach02_description| markdownify }}</div>
 			</div>
 		</div>
+	</section>
 
 	<h3 class="get-to-know" id="get-to-know">{{ .Params.CTA }}</h3>
 	<h4 class="get-to-know sub">{{ .Params.CTA_sub }}</h4>
-	<div class="services">
+	<section class="services">
 		<div class="service service-psychotherapy">
 			<img src="{{ .Params.therapy_icon }}" alt="" class="index-img">
 			<h4>{{ .Params.service_psychotherapy}}</h4>
@@ -43,7 +45,7 @@
 				<a href="/gt/" class="know-more">Saiba mais</a>
 			</div>
 		</div>
-	</div>
+	</section>
 </div>
 {{- end}}
 
