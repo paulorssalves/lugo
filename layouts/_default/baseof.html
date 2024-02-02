@@ -27,6 +27,7 @@
 
 	<title>{{ if not .IsHome }}{{ .Title | title }} — {{ end }}{{ .Site.Title }}</title>
 	<script src="https://kit.fontawesome.com/eadcda0d00.js" crossorigin="anonymous"></script>
+	<script async src="//www.instagram.com/embed.js"></script>
 	<link rel="canonical" href="{{ .Site.BaseURL }}">
 	<link rel='alternate' type='application/rss+xml' title="{{ .Site.Title }} RSS" href='/index.xml'>
 	<link rel="preconnect" href="https://fonts.googleapis.com">
@@ -113,12 +114,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	</div>
 </div>
 
+
 {{ if strings.Contains .RelPermalink "blog" }}
 	<a id="return" href="/"><h4>Voltar para a página principal</h4></a>
 {{end }}
 
 
-{{ partial "blog.html" . }}
+{{ partial "insta.html" . }}
 {{ block "footer" . }}
 {{ partial "footer.html" . }}
 {{ end }}
